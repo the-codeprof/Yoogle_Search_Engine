@@ -1,0 +1,142 @@
+
+.signup-form{
+    width:100%;
+    height: 100%;
+    display: flex;
+    padding: 15px 25px;
+    gap:1rem;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 10px;
+
+}
+
+.signup-form .field-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form .field-group label{
+    font-size: .6rem;
+    color:rgb(24, 149, 199);
+    margin-bottom: 2px;
+    font-weight: 500;
+    
+}
+
+.signup-form .field-group .input-group{
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.signup-form .input-group input{
+    padding: 10px 15px;
+    margin-right: 10px;
+    outline: none;
+    border:1px solid rgb(187, 187, 187);
+    border-radius: 4px;
+    font-size: .8rem;
+    
+}
+
+
+/* the submit button style rules */
+.signup-form .input-group input[type="submit"]{
+    background-color: rgb(24, 149, 199);
+    color:white;
+    width: 100%;
+    font-weight: 600;
+    box-shadow: 0px 8px 16px rgba(0,0,0,.1);
+    cursor: pointer;
+    transition: .3s background-color ease;
+}
+
+.signup-form .input-group input[type="submit"]:hover{
+    background-color: #444;
+}
+
+
+/* Mobile style rules */
+
+/* container style rules */
+@media (max-width:660px) {
+
+    .signup-section{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+  .signup-section .signup-form{
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+
+}
+
+.signup-form .field-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10px;
+    
+}
+
+.signup-form .field-group label{
+    font-size: .6rem;
+    color:rgb(24, 149, 199);
+    margin-bottom: 2px;
+    font-weight: 500;
+    display: block;
+    
+}
+
+.signup-form .field-group .input-group{
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap:.5rem;
+    width: 100%;
+}
+
+.signup-form .input-group input{
+    padding: 8px 13px;
+    margin-right: 10px;
+    outline: none;
+    border:1px solid rgb(187, 187, 187);
+    border-radius: 4px;
+    font-size: .8rem;
+    display: block;
+    width: 100%;
+    
+}
+
+
+/* the submit button style rules */
+.signup-form .input-group input[type="submit"]{
+    background-color: rgb(24, 149, 199);
+    color:white;
+    width: 100%;
+    font-weight: 600;
+    box-shadow: 0px 8px 16px rgba(0,0,0,.1);
+    cursor: pointer;
+    transition: .3s background-color ease;
+}
+
+.signup-form .input-group input[type="submit"]:hover{
+    background-color: #444;
+}
+}
