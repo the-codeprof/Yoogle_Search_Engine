@@ -6,7 +6,12 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*::selection{
+    background: transparent;
+    color:none;
 }
 
 
@@ -19,6 +24,7 @@ body{
     justify-content: center;
     align-items: flex-start;
     background-color: white;
+    
 }
 
 
@@ -96,6 +102,7 @@ main{
      justify-content: flex-start;
      align-items: center;
      padding: 40px 0;
+     
 }
 
 /* banner style rules */
@@ -210,21 +217,31 @@ main{
     transition: opacity 2s ease;
     transition: display 2s ease;
 
-    
+}
+
+/*  this class is responsible for displaying the search result div */
+/*  it listen to the click event on the search button  */
+.show{
+    display: flex;
+    opacity: 1;
+    width: 70%;
+    height: fit-content;
+ 
 }
 
 
 /* The container that holds all the search results */
 .results{
     max-width:80%;
-    max-height: 200px;
+    max-height: 210px;
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    gap:1rem;
+    gap:1.5rem;
+    background-color: whitesmoke;
   
    
     
@@ -233,17 +250,18 @@ main{
 
 /* This is the card that display all the details for each course */
 .result{
-    max-height:250px;
-    width: 180px;
+    height:170px;
+    width: 170px;
     background-color: white;
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     box-shadow: 0px 8px 32px rgba(0,0,0,.1);
     cursor: pointer;
     transition: transform .5s ease;
+    margin-bottom: 5px;
 
 
 }
@@ -266,7 +284,7 @@ main{
 /* the course image */
 .result img{
  
-    width: 70%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -330,27 +348,270 @@ main{
     font-size: .8rem;
     width: 50%;
     text-align: center;
-    color:#333;
     margin-right: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color:#333;
+    font-weight: 600;
    
     
 }
 
 .result .linksBox a:hover{
     border-bottom: 1px solid;
+    
 }
 
-/*  this class is responsible for displaying the search result div */
-/*  it listen to the click event on the search button  */
-.show{
+.result .linksBox .signup{
+    color:#1895C7;
+}
+
+
+
+/* the aside container that display the details */
+/* this container holds the close button, and two divs */
+.detailCard{
+    position: absolute;
     display: flex;
-    opacity: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    gap:1rem;
+    padding: 30px 10px;
+    width: 0;
+    height:calc(100vh - 120px);
+    right: -20%;
+    top:15%;
+    overflow-y: scroll;
+    background-color: #222;
+    transition: right 2s ease-in-out;
+    color:#333;
+    border: none;
+    border-top-left-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,.2);
+
+}
+
+
+
+
+/* the close button style rule  */
+.close{
+    position: absolute;
+    top:20px;
+    right: 20px;
+    display: block;
+    width: 20px;
+    display: block;
+    cursor: pointer;
+    
+
+}
+
+/* when hovering on the close button */
+.close:hover{
+    filter: grayscale();
+}
+
+
+/* the two containers inside the container that display the details */
+.detailCardTop, .detailCardBottom{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: fit-content;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding:5px;
+    margin-top:20px;
+    
+    
+}
+.detailCardBottom{
+    gap:1.5rem;
+    
+}
+
+/*  the styling of the elements inside detailCardTop div starts here  */
+/* ------------------------------------------------------------------- */
+
+
+/* the course image inside the top div */
+.dImage{
+    width:90%;
+    display: flex;
+    margin-top: 1px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 10px;
+
+}
+
+/* this container holds the id, title, fee, and duration. */
+/* it is inside the top div  */
+.coursePropsCont{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap:.6rem;
+    margin-top:10px;
+    padding: 10px 15px;
+    background-color:#F03A17;
+    border-radius: 5px;
+    color:whitesmoke;
+
+}
+
+/* the elements inside the coursePropsCont */
+.dId, .dTitle, .dFee, .dDuration {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+/*  the styling of the elements inside detailCardBottom div starts here  */
+/* ------------------------------------------------------------------- */
+
+/* The detailCardBottom contains the aboutCourseDiv, the aboutCourse div contains
+courseDescription div and the courseBenefit div *
+The courseDescription contains h3 and p elements as description title, and
+description body respectively.
+*/
+
+.aboutCourse{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 4px;
+    gap: 1rem;
+    padding: 10px 15px;
+    background-color:#1895C7;
+    border-radius: 10px;
+}
+
+.courseDesc{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    padding: 5px 0;
+    gap:.5rem;
+    
+}
+
+.courseDescTitle, .benefitTitle{
+    font-size: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color:white;
+
+}
+
+.benefitTitle{
+
+    color:#222;
+}
+
+.courseDescBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+    color:white;
+    letter-spacing: 1px;
+    font-weight: 100;
+    word-spacing: 1px;
+    
+}
+
+/* The benefit div styling rules */
+.benefitContainer{
+    
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+/*  the wrapper div inside the benefitContainer that holds the benfit
+title and benefit body text */
+
+
+.benefits{
+    
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    align-items: center;
+    justify-content: center;
+    margin-top:10px;
+    padding: 10px 15px;
+    background-color:white;
+    border-radius: 10px;
+    
+}
+
+.benefitBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 400;
+    font-size: .7rem;
+    color:#222;
+    letter-spacing: 1px;
+   
+}
+
+.benefitBody li{
+    list-style-type: disc;
+    margin-bottom: 3px;
+}
+
+/* this class is added to the aside detailContainer to make it visible */
+.showCardDetail{
+    right:0;
+    width: 20%;
+}
+
+/* designing the scrollball of the results container and detailCard */
+.results::-webkit-scrollbar, .detailCard::-webkit-scrollbar{
+    width:10px;
+    border:none;
+    background: rgba(255,255,255,0.2);
+    outline: none;
+   
+}
+.results::-webkit-scrollbar-track, .detailCard::-webkit-scrollbar-track{
  
+  
+     background-color: #ccc;
+}
+
+.results::-webkit-scrollbar-thumb, .detailCard::-webkit-scrollbar-thumb{
+    background-color: rgb(24, 149, 199);
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    
 }
 
 
@@ -363,6 +624,7 @@ main{
     align-items: center;
     width: 100%;
     padding: 10px;
+    height: 30px;
    
 }
 
@@ -710,7 +972,25 @@ main{
     
 }
 
+.detailCard{
+    position: absolute;
+    padding: 30px;
+    width: 100%;
+    height: calc(100vh - 60px);
+    right: -100%;
+    overflow-y: scroll;
+    top:0;
+    background-color: #000;
+    transition: right 1s ease;
 }
+
+.showCardDetail{
+    right:0;
+}
+
+
+}
+
 
 
 /*  Check the form.css for the style rules of the signup and login form  */
